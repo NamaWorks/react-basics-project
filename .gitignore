@@ -27,3 +27,5 @@ dist-ssr
 # added
 
 requirements.md
+weather_api.md
+.env
