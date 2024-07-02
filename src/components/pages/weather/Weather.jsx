@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react"
-import { getCurrentLocation, getWeather } from "../../../api/getLocation"
+import { getWeather } from "../../../api/getLocation"
 
 
-const Weather = () => {
+const Weather = ({ coordinates, weather, city }) => {
 
-const [city, setCity] = useState()
-const [coordinates, setCoordinates] = useState()
-const [weather, setWeather] = useState()
+  // useEffect(() => {
 
-useEffect(() => {
-},[]);
+  // },[weather]);
 
   return (
     <main id="weather">
-      
+      <h2>{coordinates[0]}, {coordinates[1]}</h2>
+      <h2>{city}</h2>
+      <h3>temp : {weather}</h3>
+      <h3>COMPONENT INSIDE WEATHER</h3>
+      <h3>COMPONENT INSIDE WEATHER</h3>
+      <h3>COMPONENT INSIDE WEATHER</h3>
+      <h3>COMPONENT INSIDE WEATHER</h3>
     </main>
   )
 }

@@ -1,45 +1,37 @@
 import './SearchBar.css'
-import React, { useState } from 'react'
-import { getCityCoordinates, getCurrentLocation, getWeather } from '../../../api/getLocation'
+import { getCityCoordinates, getWeather } from '../../../api/getLocation'
 
 
 
-const SearchBar = ({ setCoordinates, coordinates }) => {
-  console.log(coordinates)
+const SearchBar = ({ setCoordinates, setCity, setWeather, setWeatherMain, setWeatherDescription, setWeatherIcon, setMainTemp, setMainFeelsLike, setMainTempMin, setMainTempMax, setMainHumidity, setMainSeaLevel, setMainGroundLevel, setVisibility, setWindSpeed, setWindDeg, setClouds  }) => {
+  
   return (
   <div id='searchbar'>
-    <h2>{coordinates}</h2>
-    <button onClick={function(){setCoordinates(coordinates + 1)}}>click</button>
     <input 
       type="text" 
       id='city-input'  
       placeholder='search City' 
-      onBlur={async function(e){
-        if (e.target.value) {
-          try {
-            const cityCoords = await getCityCoordinates(e.target.value);
-            const weather = await getWeather(
-              cityCoords[0].lat,
-              cityCoords[0].lon
-            );
-            console.log(weather);
-            e.target.value = weather.name
-          } catch (error) {
-            console.log(error);
-          }
-        }
-    }}
+    //   onBlur={async function(e){
+    //     console.log(`blur`)
+    // }}
       onKeyDown={async function(e){
         if (e.code == "Enter") {
           if (e.target.value) {
             try {
+
               const cityCoords = await getCityCoordinates(e.target.value);
-              const weather = await getWeather(
+              setCoordinates([cityCoords[0].lat, cityCoords[0].lon])
+              
+              const weatherData = await getWeather(
                 cityCoords[0].lat,
                 cityCoords[0].lon
               );
-              console.log(weather);
-              e.target.value = weather.name
+              const weatherDataJson = JSON.stringify(weatherData)
+              setWeather(weatherDataJson)
+  
+              e.target.value = weatherData.name
+              setCity(weatherData.name)
+  
             } catch (error) {
               console.log(error);
             }
