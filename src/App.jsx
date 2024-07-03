@@ -1,6 +1,7 @@
 import "./App.css";
 import { Route, Routes } from 'react-router-dom';
 import SearchBar from "./components/elements/searchbar/SearchBar";
+import CurrentCity from "./components/elements/CurrentCity/CurrentCity.jsx";
 import Footer from "./components/elements/footer/Footer";
 import Weather from "./components/pages/weather/Weather.jsx";
 import { useEffect, useState } from "react";
@@ -8,10 +9,15 @@ import { getWeather } from "./api/getLocation.js";
 
 
 function App() {
-  const [city, setCity] = useState("Madrid");
-  const [coordinates, setCoordinates] = useState([40.4168, 3.7038]);
+
+  useEffect(()=> {
+console.log("weather changed")
+  },[])
+
+  const [city, setCity] = useState();
+  const [coordinates, setCoordinates] = useState();
   const [weather, setWeather] = useState();
-  const [weatherMain, setWeatherMain] = useState("choripanes");
+  const [weatherMain, setWeatherMain] = useState();
   const [weatherDescription, setWeatherDescription] = useState();
   const [weatherIcon, setWeatherIcon] = useState();
   const [mainTemp, setMainTemp] = useState();
@@ -27,12 +33,12 @@ function App() {
   const [clouds, setClouds] = useState();
 
   useEffect(() => {
-    async function getWeatherData() {
-      const weatherData = await getWeather(coordinates[0], coordinates[1]);
-      const weatherDataJson = JSON.stringify(weatherData);
-      setWeather(weatherDataJson);
-    }
-    getWeatherData();
+    // async function getWeatherData() {
+    //   const weatherData = await getWeather(coordinates[0], coordinates[1]);
+    //   const weatherDataJson = JSON.stringify(weatherData);
+    //   setWeather(weatherDataJson);
+    //   await getWeatherData();
+    // }
   }, []);
 
   return (
@@ -57,6 +63,10 @@ function App() {
           setWindDeg={setWindDeg}
           setClouds={setClouds}
         />
+        <CurrentCity 
+          coordinates={coordinates}
+          city={city}
+        />
       </div>
       <Routes>
         <Route path="/">
@@ -64,30 +74,44 @@ function App() {
             index element={
               <Weather
                 coordinates={coordinates}
-                setCoordinates={setCoordinates}
                 city={city}
                 weather={weather}
+                weatherMain={weatherMain}
+                weatherDescription={weatherDescription}
+                weatherIcon={weatherIcon}
+                mainTemp={mainTemp}
+                mainFeelsLike={mainFeelsLike}
+                mainTempMin={mainTempMin}
+                mainTempMax={mainTempMax}
+                mainHumidity={mainHumidity}
+                mainSeaLevel={mainSeaLevel}
+                mainGroundLevel={mainGroundLevel}
+                visibility={visibility}
+                windSpeed={windSpeed}
+                windDeg={windDeg}
+                clouds={clouds}
+                setCoordinates={setCoordinates}
+                setCity={setCity}
+                setWeather={setWeather}
+                setWeatherMain={setWeatherMain}
+                setWeatherDescription={setWeatherDescription}
+                setWeatherIcon={setWeatherIcon}
+                setMainTemp={setMainTemp}
+                setMainFeelsLike={setMainFeelsLike}
+                setMainTempMin={setMainTempMin}
+                setMainTempMax={setMainTempMax}
+                setMainHumidity={setMainHumidity}
+                setMainSeaLevel={setMainSeaLevel}
+                setMainGroundLevel={setMainGroundLevel}
+                setVisibility={setVisibility}
+                setWindSpeed={setWindSpeed}
+                setWindDeg={setWindDeg}
+                setClouds={setClouds}
               />
             }
           />
-          <Route path="weather" element={
-              <Weather
-              coordinates={coordinates}
-              setCoordinates={setCoordinates}
-              city={city}
-              weather={weather}
-            />
-            } 
-          />
         </Route>
       </Routes>
-
-      {/* <Weather
-        coordinates={coordinates}
-        setCoordinates={setCoordinates}
-        city={city}
-        weather={weather}
-      /> */}
       <Footer
         coordinates={coordinates}
         setCoordinates={setCoordinates}
