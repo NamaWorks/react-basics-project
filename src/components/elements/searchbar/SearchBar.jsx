@@ -1,9 +1,14 @@
 import './SearchBar.css'
 import { getCityCoordinates, getWeather } from '../../../api/getLocation'
+import { useEffect } from 'react'
 
 
 
 const SearchBar = ({ setCoordinates, setCity, setWeather, setWeatherMain, setWeatherDescription, setWeatherIcon, setMainTemp, setMainFeelsLike, setMainTempMin, setMainTempMax, setMainHumidity, setMainSeaLevel, setMainGroundLevel, setVisibility, setWindSpeed, setWindDeg, setClouds  }) => {
+
+  useEffect(()=> {
+
+  },[])
   
   return (
   <div id='searchbar'>

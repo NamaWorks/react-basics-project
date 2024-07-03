@@ -1,9 +1,11 @@
 import "./App.css";
+import { Route, Routes } from 'react-router-dom';
 import SearchBar from "./components/elements/searchbar/SearchBar";
 import Footer from "./components/elements/footer/Footer";
 import Weather from "./components/pages/weather/Weather.jsx";
 import { useEffect, useState } from "react";
 import { getWeather } from "./api/getLocation.js";
+
 
 function App() {
   const [city, setCity] = useState("Madrid");
@@ -56,12 +58,36 @@ function App() {
           setClouds={setClouds}
         />
       </div>
-      <Weather
+      <Routes>
+        <Route path="/">
+          <Route
+            index element={
+              <Weather
+                coordinates={coordinates}
+                setCoordinates={setCoordinates}
+                city={city}
+                weather={weather}
+              />
+            }
+          />
+          <Route path="weather" element={
+              <Weather
+              coordinates={coordinates}
+              setCoordinates={setCoordinates}
+              city={city}
+              weather={weather}
+            />
+            } 
+          />
+        </Route>
+      </Routes>
+
+      {/* <Weather
         coordinates={coordinates}
         setCoordinates={setCoordinates}
         city={city}
         weather={weather}
-      />
+      /> */}
       <Footer
         coordinates={coordinates}
         setCoordinates={setCoordinates}
