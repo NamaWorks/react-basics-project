@@ -1,3 +1,11 @@
 #searchbar {
-  /* background-color: var(--darkest-grey); */
+  display: flex;
+  background-color: blue;
+  align-items: center;
 }
+
+#city-input {
+  background: none;
+  border: none;
+}
+

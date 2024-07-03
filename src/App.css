@@ -1,6 +1,6 @@
 body {
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,4 +10,16 @@ body {
 
 .top-menu {
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#weather {
+  height: 80svh;
+  width: 80svw;
+
+  display: flex;
+  background-color: aquamarine;
+  padding: 20px;
+  justify-content: flex-start;
 }

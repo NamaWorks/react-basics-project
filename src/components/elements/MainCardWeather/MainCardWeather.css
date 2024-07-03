@@ -1,0 +1,12 @@
+#main-card-weather {
+  background-color: blueviolet;
+}
+
+.top-card{
+  display: flex;
+}
+
+.bottom-card {
+  display: flex;
+  align-items: end;
+}
