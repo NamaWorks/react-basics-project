@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { getCityCoordinates, getWeather } from "../../../api/getLocation"
+import MainCardWeather from "../../elements/MainCardWeather/MainCardWeather";
 
 
 const Weather = ({ coordinates, weather, city, weatherMain, weatherDescription, weatherIcon, mainTemp, mainFeelsLike, mainTempMin, mainTempMax, mainHumidity, mainSeaLevel, mainGroundLevel, visibility, windSpeed, winDeg, clouds, setCoordinates, setCity, setWeather, setWeatherMain, setWeatherDescription, setWeatherIcon, setMainTemp, setMainFeelsLike, setMainTempMin, setMainTempMax, setMainHumidity, setMainSeaLevel, setMainGroundLevel, setVisibility, setWindSpeed, setWindDeg, setClouds }) => {
@@ -44,29 +45,16 @@ const Weather = ({ coordinates, weather, city, weatherMain, weatherDescription, 
 
   return (
     <main id="weather">
-
-      <div id="main-weather">
-        <div className="top-card">
-          <p className="top-card-weekday">Friday</p>
-          <p className="top-card-last-time-check">11.45 AM</p>
-        </div>
-
-        <div className="bottom-card">
-          <div className="bottom-card-left">
-            <p>Main temp: {Math.floor(mainTemp)}</p>
-            <div>
-              <img src={`../../../../public/assets/icons/${weatherIcon}@2x.png`} alt="" />
-            </div>
-            <p>Real feel: <span>{mainFeelsLike}</span></p>
-            <p>Wind speed: <span>{windSpeed}</span></p>
-            <p>Description: {weatherDescription}</p>
-            <p>Humidity: {mainHumidity}</p>
-            <p>Icon: {weatherIcon}</p>
-          </div>
-          
-        </div>
-
-      </div>
+      <MainCardWeather 
+        weatherDescription={weatherDescription}
+        weatherIcon={weatherIcon}
+        mainTemp={mainTemp} 
+        mainFeelsLike ={mainFeelsLike}
+        windSpeed={windSpeed}
+        mainTempMin={mainTempMin}
+        mainTempMax={mainTempMax}
+        mainHumidity={mainHumidity}
+        />
     </main>
   );
 }
