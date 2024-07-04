@@ -1,13 +1,17 @@
+import "./Weather.css"
+
 import { useEffect, useState } from "react"
 import { getCityCoordinates, getWeather } from "../../../api/getLocation"
-import MainCardWeather from "../../elements/MainCardWeather/MainCardWeather";
+import MainCardWeather from "../../elements/cards/MainCardWeather/MainCardWeather";
+import TempsCard from "../../elements/cards/TempsCard/TempsCard";
+import WindCard from "../../elements/cards/WindCard/WindCard";
+import MiscCard from "../../elements/cards/MiscCard/MiscCard";
 
 
-const Weather = ({ coordinates, weather, city, weatherMain, weatherDescription, weatherIcon, mainTemp, mainFeelsLike, mainTempMin, mainTempMax, mainHumidity, mainSeaLevel, mainGroundLevel, visibility, windSpeed, winDeg, clouds, setCoordinates, setCity, setWeather, setWeatherMain, setWeatherDescription, setWeatherIcon, setMainTemp, setMainFeelsLike, setMainTempMin, setMainTempMax, setMainHumidity, setMainSeaLevel, setMainGroundLevel, setVisibility, setWindSpeed, setWindDeg, setClouds }) => {
+const Weather = ({ coordinates, weather, city, weatherMain, weatherDescription, weatherIcon, mainTemp, mainFeelsLike, mainTempMin, mainTempMax, mainHumidity, mainSeaLevel, mainGroundLevel, visibility, windSpeed, windDeg, clouds, setCoordinates, setCity, setWeather, setWeatherMain, setWeatherDescription, setWeatherIcon, setMainTemp, setMainFeelsLike, setMainTempMin, setMainTempMax, setMainHumidity, setMainSeaLevel, setMainGroundLevel, setVisibility, setWindSpeed, setWindDeg, setClouds }) => {
 
   useEffect(() => {
     if(!weather){
-      
         async function fetchDefaultCity (){
         
           const cityCoords = await getCityCoordinates("London");
@@ -19,8 +23,6 @@ const Weather = ({ coordinates, weather, city, weatherMain, weatherDescription, 
           );
           const weatherDataJson = JSON.stringify(weatherData)
           setWeather(await weatherDataJson)
-
-          console.log(weatherData)
 
           setCity(await weatherData.name)
           setWeatherMain(await weatherData.weather[0].main)
@@ -38,7 +40,6 @@ const Weather = ({ coordinates, weather, city, weatherMain, weatherDescription, 
           setWindDeg(await weatherData.wind.deg)
           setClouds(await weatherData.clouds.all)
         }
-        
         fetchDefaultCity()
     }
   },[weather]);
@@ -49,12 +50,29 @@ const Weather = ({ coordinates, weather, city, weatherMain, weatherDescription, 
         weatherDescription={weatherDescription}
         weatherIcon={weatherIcon}
         mainTemp={mainTemp} 
-        mainFeelsLike ={mainFeelsLike}
-        windSpeed={windSpeed}
+        />
+  <div className="smaller-cards">
+      <TempsCard
         mainTempMin={mainTempMin}
         mainTempMax={mainTempMax}
+        mainFeelsLike={mainFeelsLike}
+      />
+
+      <WindCard 
+        windSpeed={windSpeed}
+        windDeg={windDeg}
+      />
+  </div>
+  
+      <MiscCard 
+        coordinates={coordinates}
+        city={city}
         mainHumidity={mainHumidity}
-        />
+        mainSeaLevel={mainSeaLevel}
+        mainGroundLevel={mainGroundLevel}
+        visibility={visibility}
+      />
+  
     </main>
   );
 }

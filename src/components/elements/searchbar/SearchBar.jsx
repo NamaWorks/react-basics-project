@@ -4,11 +4,14 @@ import { useEffect } from 'react'
 
 
 
-const SearchBar = ({ setCoordinates, setCity, setWeather, setWeatherMain, setWeatherDescription, setWeatherIcon, setMainTemp, setMainFeelsLike, setMainTempMin, setMainTempMax, setMainHumidity, setMainSeaLevel, setMainGroundLevel, setVisibility, setWindSpeed, setWindDeg, setClouds  }) => {
+const SearchBar = ({ city, setCoordinates, setCity, setWeather, setWeatherMain, setWeatherDescription, setWeatherIcon, setMainTemp, setMainFeelsLike, setMainTempMin, setMainTempMax, setMainHumidity, setMainSeaLevel, setMainGroundLevel, setVisibility, setWindSpeed, setWindDeg, setClouds  }) => {
 
   useEffect(()=> {
-
-  },[])
+    if(city){
+    const input = document.querySelector("#city-input")
+    input.placeholder = city
+    }
+  },[city])
   
   return (
   <div id='searchbar'>
@@ -31,6 +34,7 @@ const SearchBar = ({ setCoordinates, setCity, setWeather, setWeatherMain, setWea
               const weatherDataJson = JSON.stringify(weatherData)
               setWeather(weatherDataJson)
 
+              e.target.placeholder = weatherData.name
               e.target.value = weatherData.name
               setCity(weatherData.name)
               setWeatherMain(weatherData.weather[0].main)

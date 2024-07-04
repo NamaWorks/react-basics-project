@@ -1,11 +1,31 @@
 #searchbar {
   display: flex;
-  background-color: blue;
-  align-items: center;
+  border-radius: var(--main-border-radius);
+  box-shadow:  20px 20px 60px #000000,
+             -20px -20px 60px #1a1a1a;
+background: linear-gradient(45deg, rgba(42,42,42,1) 0%, rgba(20,20,20,1) 55%);
 }
 
 #city-input {
-  background: none;
+  height: 4rem;
+  width: 20rem;
+  padding: var(--main-padding-m);
+  border-radius: var(--main-border-radius);
+  background-color: var(--mid-grey-opacity) transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
+  opacity: 1;
+  font-size: var(--font-size-p);
+  font-weight: var(--font-weight-s);
+  z-index: 99;
+}
+
+#city-input::placeholder{
+  color: var(--text-color);
+  opacity: .25;
+  font-size: var(--font-size-p);
+  font-weight: var(--font-weight-s);
 }
 

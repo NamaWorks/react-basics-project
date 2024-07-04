@@ -1,15 +1,37 @@
 :root{
   /* COLORS */
-  --darkest-grey:#111015;
-  --mid-grey: #1e1e1e
+  --darkest-grey:#141414;
+  --darkest-grey-opacity:#14141465;
+  --mid-grey: #1a1a1a;
+  --mid-grey-opacity: #1a1a1a65;
+  --highlight-color: #e16f51;
+  --text-color: #ffffff;
 
   /* FONTS */
   --main-font: "montserrat", sans-serif;
-  --font-weight-m: 500,
+  --font-size-p: 1.25rem;
+  --font-weight-s: 300;
+  --font-weight-m: 500;
+  --font-weight-l: 700;
+  --font-size-h2: 5rem;
+  --font-size-h3: 2rem;
+  --line-height-h3: 1.75rem;
+
+  /* SHAPES */
+  --main-border-radius: 15px;
+  
+  /* IMAGES */
+  --main-card-images: 6.5rem;
+
+  /* MARGINS AND PADDINGS */
+  --main-padding-m: 20px;
+  --main-padding-xl: 60px;
 }
+
 
 *{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -19,4 +41,6 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: var(--main-padding-xl);
 }
+

@@ -1,0 +1,30 @@
+#main-card-weather {
+  width: 100%;
+}
+
+.bottom-card-main {
+  display: flex;
+  align-items: end;
+}
+
+.bottom-card-main-image-container{
+  width: var(--main-card-images);
+  overflow: hidden;
+  display: flex;
+}
+
+.bottom-card-main-image-container > img {
+  width: 100%;
+  position: relative;
+  bottom: -.5rem;
+}
+
+#main-card-weather .bottom-card {
+  align-items: center;
+}
+
+@media (width<=1200px) {
+  #main-card-weather{
+    width: 100%;
+  }
+}

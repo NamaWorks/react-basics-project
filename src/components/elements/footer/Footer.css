@@ -1,3 +1,17 @@
 footer {
-  background-color: #7c72ff;
+  height: 75px;
+  width: 300px;
+  border-radius: var(--main-border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:  20px 20px 60px #000000,
+             -20px -20px 60px #1a1a1a;
+background: linear-gradient(45deg, #1a1a1a 0%, #202020 100%);
+}
+
+footer p{
+  font-size: 10px;
+  font-weight: var(--font-weight-s);
+  text-transform: uppercase;
 }

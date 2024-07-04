@@ -1,0 +1,40 @@
+.compass{
+  display: flex;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compass-drawing{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--highlight-color);
+  height: 80%;
+  width: 80%;
+  border-radius: 100%;
+}
+
+.inner-circle {
+  position: relative;
+  height: 10px;
+  width: 10px;
+  border: 2px solid var(--highlight-color);
+  border-radius: 100%;
+  bottom: 30px;
+}
+
+.inner-direction {
+  align-self: center;
+  position: relative;
+  left: 2px;
+  bottom: -10px;
+  height: 20px;
+  width: 0px;
+  border: 1px solid var(--highlight-color);
+
+}
+

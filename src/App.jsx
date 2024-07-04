@@ -45,6 +45,7 @@ console.log("weather changed")
     <>
       <div className="top-menu">
         <SearchBar
+          city={city}
           setCoordinates={setCoordinates}
           setCity={setCity}
           setWeather={setWeather}
@@ -63,10 +64,10 @@ console.log("weather changed")
           setWindDeg={setWindDeg}
           setClouds={setClouds}
         />
-        <CurrentCity 
+        {/* <CurrentCity 
           coordinates={coordinates}
           city={city}
-        />
+        /> */}
       </div>
       <Routes>
         <Route path="/">

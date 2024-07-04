@@ -1,0 +1,27 @@
+#weather {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: var(--main-padding-m);
+flex-wrap: wrap;
+/* width: 80svw; */
+}
+
+.smaller-cards{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-width: 260px;
+  gap: var(--main-padding-m);
+  /* flex-wrap: wrap; */
+}
+
+@media (width<=700px) {
+  #weather{
+    width: 90svw;
+  }
+
+  .smaller-cards{
+    flex-wrap: wrap;
+  }
+}
