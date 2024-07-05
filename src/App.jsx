@@ -35,17 +35,7 @@ console.log("weather changed")
 
   const [currentSection, setCurrentSection] = useState()
 
-  const [forecast, setForecast] = useState()
-  
 
-  useEffect(() => {
-    // async function getWeatherData() {
-    //   const weatherData = await getWeather(coordinates[0], coordinates[1]);
-    //   const weatherDataJson = JSON.stringify(weatherData);
-    //   setWeather(weatherDataJson);
-    //   await getWeatherData();
-    // }
-  }, []);
 
   return (
     <>
@@ -201,49 +191,7 @@ console.log("weather changed")
               setClouds={setClouds}/>}
           />
           </Route>
-          {/* </Route> */}
-          {/* <Route path="forecast"element={
-            <Forecast
-            currentSection={currentSection}
-            coordinates={coordinates}
-            city={city}
-            weather={weather}
-            weatherMain={weatherMain}
-            weatherDescription={weatherDescription}
-            weatherIcon={weatherIcon}
-            mainTemp={mainTemp}
-            mainFeelsLike={mainFeelsLike}
-            mainTempMin={mainTempMin}
-            mainTempMax={mainTempMax}
-            mainHumidity={mainHumidity}
-            mainSeaLevel={mainSeaLevel}
-            mainGroundLevel={mainGroundLevel}
-            visibility={visibility}
-            windSpeed={windSpeed}
-            windDeg={windDeg}
-            clouds={clouds}
-            setCurrentSection={setCurrentSection}
-            setCoordinates={setCoordinates}
-            setCity={setCity}
-            setWeather={setWeather}
-            setWeatherMain={setWeatherMain}
-            setWeatherDescription={setWeatherDescription}
-            setWeatherIcon={setWeatherIcon}
-            setMainTemp={setMainTemp}
-            setMainFeelsLike={setMainFeelsLike}
-            setMainTempMin={setMainTempMin}
-            setMainTempMax={setMainTempMax}
-            setMainHumidity={setMainHumidity}
-            setMainSeaLevel={setMainSeaLevel}
-            setMainGroundLevel={setMainGroundLevel}
-            setVisibility={setVisibility}
-            setWindSpeed={setWindSpeed}
-            setWindDeg={setWindDeg}
-            setClouds={setClouds}
-            />
-          }
-          /> */}
-        {/* </Route> */}
+
       </Routes>
       <Footer
         coordinates={coordinates}
