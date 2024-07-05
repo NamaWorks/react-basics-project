@@ -1,7 +1,7 @@
 import { getCurrentLocationMock, weatherFetchMock } from "./dataMock";
 
 export const getCityCoordinates = async (city) => {
-  const res = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q={${city}},{state code}&appid=${import.meta.env.VITE_API_KEY}`)
+  const res = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q={${city}},{state code}&appid=${import.meta.env.VITE_API_KEY}`)
   const resJson = await res.json()
   // const resJson = getCurrentLocationMock
   return resJson
