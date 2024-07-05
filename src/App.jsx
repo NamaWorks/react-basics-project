@@ -6,6 +6,7 @@ import Footer from "./components/elements/footer/Footer";
 import Weather from "./components/pages/weather/Weather.jsx";
 import { useEffect, useState } from "react";
 import { getWeather } from "./api/getLocation.js";
+import PopularCities from "./components/pages/PopularCities/PopularCities.jsx";
 
 
 function App() {
@@ -33,6 +34,14 @@ console.log("weather changed")
   const [clouds, setClouds] = useState();
 
   const [currentSection, setCurrentSection] = useState()
+
+  const [cityA, setCityA] = useState("Tanger")
+  const [cityB, setCityB] = useState("Barcelona")
+  const [cityC, setCityC] = useState("Paris")
+  const [cityD, setCityD] = useState("Milan")
+  const [cityE, setCityE] = useState("Berlin")
+  const [cityF, setCityF] = useState("Oslo")
+  const [cityG, setCityG] = useState("London")
 
 
 
@@ -69,44 +78,9 @@ console.log("weather changed")
         <Route path="/">
           <Route
             index element={
-              <Weather
-                currentSection={currentSection}
-                coordinates={coordinates}
-                city={city}
-                weather={weather}
-                weatherMain={weatherMain}
-                weatherDescription={weatherDescription}
-                weatherIcon={weatherIcon}
-                mainTemp={mainTemp}
-                mainFeelsLike={mainFeelsLike}
-                mainTempMin={mainTempMin}
-                mainTempMax={mainTempMax}
-                mainHumidity={mainHumidity}
-                mainSeaLevel={mainSeaLevel}
-                mainGroundLevel={mainGroundLevel}
-                visibility={visibility}
-                windSpeed={windSpeed}
-                windDeg={windDeg}
-                clouds={clouds}
-                setCurrentSection={setCurrentSection}
-                setCoordinates={setCoordinates}
-                setCity={setCity}
-                setWeather={setWeather}
-                setWeatherMain={setWeatherMain}
-                setWeatherDescription={setWeatherDescription}
-                setWeatherIcon={setWeatherIcon}
-                setMainTemp={setMainTemp}
-                setMainFeelsLike={setMainFeelsLike}
-                setMainTempMin={setMainTempMin}
-                setMainTempMax={setMainTempMax}
-                setMainHumidity={setMainHumidity}
-                setMainSeaLevel={setMainSeaLevel}
-                setMainGroundLevel={setMainGroundLevel}
-                setVisibility={setVisibility}
-                setWindSpeed={setWindSpeed}
-                setWindDeg={setWindDeg}
-                setClouds={setClouds}
+              <PopularCities
               />
+              
             }
           />
           <Route 
