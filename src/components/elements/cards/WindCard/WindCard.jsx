@@ -9,7 +9,7 @@ const WindCard = ({ windSpeed, windDeg }) => {
       </div>
 
       <div className="bottom-card">
-        <p>Wind Speed: <span className='card-data'>{windSpeed} km/h</span></p>
+        <p>Wind Speed: <span className='card-data'>{windSpeed} m/s</span></p>
         <div>
           <p>Wind Direction:</p>
           <div className='compass'>

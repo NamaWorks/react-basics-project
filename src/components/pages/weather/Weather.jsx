@@ -6,15 +6,32 @@ import MainCardWeather from "../../elements/cards/MainCardWeather/MainCardWeathe
 import TempsCard from "../../elements/cards/TempsCard/TempsCard";
 import WindCard from "../../elements/cards/WindCard/WindCard";
 import MiscCard from "../../elements/cards/MiscCard/MiscCard";
+import { useParams } from "react-router-dom";
 
 
-const Weather = ({ coordinates, weather, city, weatherMain, weatherDescription, weatherIcon, mainTemp, mainFeelsLike, mainTempMin, mainTempMax, mainHumidity, mainSeaLevel, mainGroundLevel, visibility, windSpeed, windDeg, clouds, setCoordinates, setCity, setWeather, setWeatherMain, setWeatherDescription, setWeatherIcon, setMainTemp, setMainFeelsLike, setMainTempMin, setMainTempMax, setMainHumidity, setMainSeaLevel, setMainGroundLevel, setVisibility, setWindSpeed, setWindDeg, setClouds }) => {
+const Weather = ({ currentSection, coordinates, weather, city, weatherMain, weatherDescription, weatherIcon, mainTemp, mainFeelsLike, mainTempMin, mainTempMax, mainHumidity, mainSeaLevel, mainGroundLevel, visibility, windSpeed, windDeg, clouds, setCurrentSection, setCoordinates, setCity, setWeather, setWeatherMain, setWeatherDescription, setWeatherIcon, setMainTemp, setMainFeelsLike, setMainTempMin, setMainTempMax, setMainHumidity, setMainSeaLevel, setMainGroundLevel, setVisibility, setWindSpeed, setWindDeg, setClouds }) => {
 
+  
+  const { cityParam } = useParams()
+  console.log(cityParam)
+  
+  
   useEffect(() => {
+    setCurrentSection("weather")
+
+    
+    
     if(!weather){
         async function fetchDefaultCity (){
         
-          const cityCoords = await getCityCoordinates("London");
+          let cityCoords = []
+
+          if(!cityParam){
+            cityCoords = await getCityCoordinates("London");
+          } else {
+            cityCoords = await getCityCoordinates(cityParam);
+          }
+
           setCoordinates([cityCoords[0].lat, cityCoords[0].lon])
           
           const weatherData = await getWeather(

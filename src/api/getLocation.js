@@ -8,17 +8,17 @@ export const getCityCoordinates = async (city) => {
 
 }
 
-// export const getForecast = async (lat, lng) => {
-//  const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&appid=${import.meta.env.VITE_API_KEY}`)
-//   const resJson = await res.json()
+export const getForecast = async (lat, lng) => {
+ const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&units=metric&appid=${import.meta.env.VITE_API_KEY}`)
+  const resJson = await res.json()
 
-//   let coordinates = {
-//     latitude: lat, 
-//     longitude: lng,
-//   };
+  // console.log(res)
 
-//   return resJson
-// }
+  console.log(resJson)
+
+
+  // return resJson
+}
 
 export const getWeather = async (lat, lng) => {
 const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${import.meta.env.VITE_API_KEY}`)

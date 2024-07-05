@@ -6,6 +6,7 @@ import Footer from "./components/elements/footer/Footer";
 import Weather from "./components/pages/weather/Weather.jsx";
 import { useEffect, useState } from "react";
 import { getWeather } from "./api/getLocation.js";
+import Forecast from "./components/pages/Forecast/Forecast.jsx";
 
 
 function App() {
@@ -32,6 +33,11 @@ console.log("weather changed")
   const [windDeg, setWindDeg] = useState();
   const [clouds, setClouds] = useState();
 
+  const [currentSection, setCurrentSection] = useState()
+
+  const [forecast, setForecast] = useState()
+  
+
   useEffect(() => {
     // async function getWeatherData() {
     //   const weatherData = await getWeather(coordinates[0], coordinates[1]);
@@ -45,6 +51,7 @@ console.log("weather changed")
     <>
       <div className="top-menu">
         <SearchBar
+          currentSection={currentSection}
           city={city}
           setCoordinates={setCoordinates}
           setCity={setCity}
@@ -74,6 +81,7 @@ console.log("weather changed")
           <Route
             index element={
               <Weather
+                currentSection={currentSection}
                 coordinates={coordinates}
                 city={city}
                 weather={weather}
@@ -91,6 +99,7 @@ console.log("weather changed")
                 windSpeed={windSpeed}
                 windDeg={windDeg}
                 clouds={clouds}
+                setCurrentSection={setCurrentSection}
                 setCoordinates={setCoordinates}
                 setCity={setCity}
                 setWeather={setWeather}
@@ -111,7 +120,130 @@ console.log("weather changed")
               />
             }
           />
-        </Route>
+          <Route 
+            path="weather"
+            element={<Weather
+              currentSection={currentSection}
+              coordinates={coordinates}
+              city={city}
+              weather={weather}
+              weatherMain={weatherMain}
+              weatherDescription={weatherDescription}
+              weatherIcon={weatherIcon}
+              mainTemp={mainTemp}
+              mainFeelsLike={mainFeelsLike}
+              mainTempMin={mainTempMin}
+              mainTempMax={mainTempMax}
+              mainHumidity={mainHumidity}
+              mainSeaLevel={mainSeaLevel}
+              mainGroundLevel={mainGroundLevel}
+              visibility={visibility}
+              windSpeed={windSpeed}
+              windDeg={windDeg}
+              clouds={clouds}
+              setCurrentSection={setCurrentSection}
+              setCoordinates={setCoordinates}
+              setCity={setCity}
+              setWeather={setWeather}
+              setWeatherMain={setWeatherMain}
+              setWeatherDescription={setWeatherDescription}
+              setWeatherIcon={setWeatherIcon}
+              setMainTemp={setMainTemp}
+              setMainFeelsLike={setMainFeelsLike}
+              setMainTempMin={setMainTempMin}
+              setMainTempMax={setMainTempMax}
+              setMainHumidity={setMainHumidity}
+              setMainSeaLevel={setMainSeaLevel}
+              setMainGroundLevel={setMainGroundLevel}
+              setVisibility={setVisibility}
+              setWindSpeed={setWindSpeed}
+              setWindDeg={setWindDeg}
+              setClouds={setClouds}/>}
+          />
+          <Route 
+            path="weather/:cityParam"
+            element={<Weather
+              currentSection={currentSection}
+              coordinates={coordinates}
+              city={city}
+              weather={weather}
+              weatherMain={weatherMain}
+              weatherDescription={weatherDescription}
+              weatherIcon={weatherIcon}
+              mainTemp={mainTemp}
+              mainFeelsLike={mainFeelsLike}
+              mainTempMin={mainTempMin}
+              mainTempMax={mainTempMax}
+              mainHumidity={mainHumidity}
+              mainSeaLevel={mainSeaLevel}
+              mainGroundLevel={mainGroundLevel}
+              visibility={visibility}
+              windSpeed={windSpeed}
+              windDeg={windDeg}
+              clouds={clouds}
+              setCurrentSection={setCurrentSection}
+              setCoordinates={setCoordinates}
+              setCity={setCity}
+              setWeather={setWeather}
+              setWeatherMain={setWeatherMain}
+              setWeatherDescription={setWeatherDescription}
+              setWeatherIcon={setWeatherIcon}
+              setMainTemp={setMainTemp}
+              setMainFeelsLike={setMainFeelsLike}
+              setMainTempMin={setMainTempMin}
+              setMainTempMax={setMainTempMax}
+              setMainHumidity={setMainHumidity}
+              setMainSeaLevel={setMainSeaLevel}
+              setMainGroundLevel={setMainGroundLevel}
+              setVisibility={setVisibility}
+              setWindSpeed={setWindSpeed}
+              setWindDeg={setWindDeg}
+              setClouds={setClouds}/>}
+          />
+          </Route>
+          {/* </Route> */}
+          {/* <Route path="forecast"element={
+            <Forecast
+            currentSection={currentSection}
+            coordinates={coordinates}
+            city={city}
+            weather={weather}
+            weatherMain={weatherMain}
+            weatherDescription={weatherDescription}
+            weatherIcon={weatherIcon}
+            mainTemp={mainTemp}
+            mainFeelsLike={mainFeelsLike}
+            mainTempMin={mainTempMin}
+            mainTempMax={mainTempMax}
+            mainHumidity={mainHumidity}
+            mainSeaLevel={mainSeaLevel}
+            mainGroundLevel={mainGroundLevel}
+            visibility={visibility}
+            windSpeed={windSpeed}
+            windDeg={windDeg}
+            clouds={clouds}
+            setCurrentSection={setCurrentSection}
+            setCoordinates={setCoordinates}
+            setCity={setCity}
+            setWeather={setWeather}
+            setWeatherMain={setWeatherMain}
+            setWeatherDescription={setWeatherDescription}
+            setWeatherIcon={setWeatherIcon}
+            setMainTemp={setMainTemp}
+            setMainFeelsLike={setMainFeelsLike}
+            setMainTempMin={setMainTempMin}
+            setMainTempMax={setMainTempMax}
+            setMainHumidity={setMainHumidity}
+            setMainSeaLevel={setMainSeaLevel}
+            setMainGroundLevel={setMainGroundLevel}
+            setVisibility={setVisibility}
+            setWindSpeed={setWindSpeed}
+            setWindDeg={setWindDeg}
+            setClouds={setClouds}
+            />
+          }
+          /> */}
+        {/* </Route> */}
       </Routes>
       <Footer
         coordinates={coordinates}
