@@ -6,7 +6,6 @@ import Footer from "./components/elements/footer/Footer";
 import Weather from "./components/pages/weather/Weather.jsx";
 import { useEffect, useState } from "react";
 import { getWeather } from "./api/getLocation.js";
-import Forecast from "./components/pages/Forecast/Forecast.jsx";
 
 
 function App() {
