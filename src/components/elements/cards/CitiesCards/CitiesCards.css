@@ -1,3 +1,7 @@
 .popular-city-card{
   display: flex;
 }
+
+.popular-city-card .bottom-card {
+  display: flex;
+}
