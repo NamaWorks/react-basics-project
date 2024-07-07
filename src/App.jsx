@@ -35,15 +35,6 @@ console.log("weather changed")
 
   const [currentSection, setCurrentSection] = useState()
 
-  const [cityA, setCityA] = useState("Tanger")
-  const [cityB, setCityB] = useState("Barcelona")
-  const [cityC, setCityC] = useState("Paris")
-  const [cityD, setCityD] = useState("Milan")
-  const [cityE, setCityE] = useState("Berlin")
-  const [cityF, setCityF] = useState("Oslo")
-  const [cityG, setCityG] = useState("London")
-
-
 
   return (
     <>
@@ -79,6 +70,8 @@ console.log("weather changed")
           <Route
             index element={
               <PopularCities
+              currentSection={currentSection}
+              setCurrentSection={setCurrentSection}
               />
               
             }
