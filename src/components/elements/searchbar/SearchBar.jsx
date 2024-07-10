@@ -1,6 +1,7 @@
 import './SearchBar.css'
 import { getCityCoordinates, getWeather } from '../../../api/getLocation'
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -13,6 +14,8 @@ const SearchBar = ({ currentSection, city, setCoordinates, setCity, setWeather, 
     }
   },[city])
   
+  const navigate = useNavigate();
+  
   return (
   <div id='searchbar'>
     <input 
@@ -24,7 +27,9 @@ const SearchBar = ({ currentSection, city, setCoordinates, setCity, setWeather, 
           if (e.target.value) {
             // if(currentSection == "weather"){
               try {
+                navigate("/weather/" + e.target.value)
                 const cityCoords = await getCityCoordinates(e.target.value);
+                console.log(cityCoords)
                 setCoordinates([cityCoords[0].lat, cityCoords[0].lon])
                 
                 const weatherData = await getWeather(

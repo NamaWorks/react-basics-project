@@ -13,7 +13,7 @@ const Weather = ({ currentSection, coordinates, weather, city, weatherMain, weat
 
   
   const { cityParam } = useParams()
-  console.log(cityParam)
+  // console.log(cityParam)
   
   
   useEffect(() => {

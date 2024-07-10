@@ -6,6 +6,13 @@ const PopularCities = ({ currentSection, setCurrentSection }) => {
 
   setCurrentSection('popularCities')
 
+  // const [cityA, setCityA] = useState("Almendralejo")
+  // const [cityB, setCityB] = useState("Cadiz")
+  // const [cityC, setCityC] = useState("Córdoba")
+  // const [cityD, setCityD] = useState("Jerez de la Frontera")
+  // const [cityE, setCityE] = useState("Sevilla")
+  // const [cityF, setCityF] = useState("Don Benito")
+  // const [cityG, setCityG] = useState("Grazalema")
   const [cityA, setCityA] = useState("Tanger")
   const [cityB, setCityB] = useState("Barcelona")
   const [cityC, setCityC] = useState("Paris")

@@ -13,10 +13,10 @@ const CitiesCards = ({ city }) => {
   useEffect(() => {
         async function fetchCity (){
 
-          console.log(city)
+          // console.log(city)
 
             let cityCoords = await getCityCoordinates(city);
-            console.log(await cityCoords)
+            // console.log(await cityCoords)
 
           // console.log(await cityCoords)
           const weatherData = await getWeather(
