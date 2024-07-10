@@ -12,19 +12,19 @@ const CitiesCards = ({ city }) => {
 
   useEffect(() => {
         async function fetchCity (){
-        
-          let cityCoords = []
 
-          
-            cityCoords = await getCityCoordinates({city});
+          console.log(city)
 
-          console.log(cityCoords)
+            let cityCoords = await getCityCoordinates(city);
+            console.log(await cityCoords)
+
+          // console.log(await cityCoords)
           const weatherData = await getWeather(
             cityCoords[0].lat,
             cityCoords[0].lon
           );
           // const weatherDataJson = JSON.stringify(weatherData)
-            console.log(weatherData.main)
+            // console.log(weatherData.main)
             setPopularCityTemp(Math.floor(weatherData.main.temp))
             setPopularCityCountry(weatherData.sys.country)
             setPopularCityIcon(weatherData.weather[0].icon)

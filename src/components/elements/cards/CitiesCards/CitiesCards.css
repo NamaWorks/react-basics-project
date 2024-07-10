@@ -3,12 +3,13 @@
   flex-direction: column;
   gap: var(--main-flex-gap);
   padding: var(--main-padding-m);
-
+  /* max-height: 260px; */
 }
 
 .popular-city-card{
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
 }
 
 .popular-city-card .bottom-card {
