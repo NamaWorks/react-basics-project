@@ -44,8 +44,8 @@ const CitiesCards = ({ city }) => {
           <div className='bottom-card-main-image-container'>
           <img src={`../../../../../assets/icons/${popularCityIcon}@2x.png`} alt="" />
         </div>
-        <p className='card-data'>{popularCityDescription}</p>
         </div>
+        <p className='card-data'>{popularCityDescription}</p>
       </div>
     </div>
   )
