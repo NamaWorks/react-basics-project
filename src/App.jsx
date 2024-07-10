@@ -7,7 +7,7 @@ import Weather from "./components/pages/weather/Weather.jsx";
 import { useEffect, useState } from "react";
 import { getWeather } from "./api/getLocation.js";
 import PopularCities from "./components/pages/PopularCities/PopularCities.jsx";
-import WeatherPopularButton from "./components/elements/WeatherPopularButton/WeatherPopularButton";
+import ChangeSctButton from "./components/elements/ChangeSctButton/ChangeSctButton";
 
 
 function App() {
@@ -62,7 +62,7 @@ console.log("weather changed")
           setClouds={setClouds}
         />
 
-        <WeatherPopularButton
+        <ChangeSctButton
           currentSection={currentSection}
           setCurrentSection={setCurrentSection}
         />

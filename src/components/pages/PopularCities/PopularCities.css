@@ -1,0 +1,9 @@
+.cities-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.cities-cards .popular-city-card {
+  width: 70svw;
+}

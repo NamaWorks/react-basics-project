@@ -24,6 +24,7 @@
   --main-card-images: 6.5rem;
 
   /* MARGINS AND PADDINGS */
+  --main-padding-s: 10px;
   --main-padding-m: 20px;
   --main-padding-xl: 60px;
   --main-flex-gap: 20px

@@ -1,0 +1,11 @@
+.change-section-btn{
+  background-color: transparent;
+  border: 0 ;
+  cursor: pointer;
+  background-color: var(--highlight-color);
+  border-radius: var(--main-border-radius);
+  padding: var(--main-padding-s);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-s);
+  width: 100%;
+}
