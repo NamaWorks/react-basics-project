@@ -17,7 +17,6 @@ const MainCardWeather = ({ weatherDescription, weatherIcon, mainTemp }) => {
         <h2>{Math.floor(mainTemp)}°</h2>
         <div className='bottom-card-main-image-container'>
           <img src={`../../../../../public/assets/icons/${weatherIcon}@2x.png`} alt="" />
-          "./../../../../../public/assets/icons"
   
         </div>
       </div>
