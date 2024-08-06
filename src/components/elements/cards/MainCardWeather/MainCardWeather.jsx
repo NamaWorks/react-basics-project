@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { getDate } from '../../../../utils/functions/getDate'
 import "./MainCardWeather.css"
 import "../../cards/cards.css"
 
-const MainCardWeather = ({ weatherDescription, weatherIcon, mainTemp }) => {
+const MainCardWeather = ({ weather }) => {
 
   return (
     <div id="main-card-weather" className='card'>
@@ -14,13 +14,13 @@ const MainCardWeather = ({ weatherDescription, weatherIcon, mainTemp }) => {
 
     <div className="bottom-card">
       <div className="bottom-card-main">
-        <h2>{Math.floor(mainTemp)}°</h2>
+        <h2>{weather ? Math.floor(JSON.parse(weather).main.temp) : 0}°</h2>
         <div className='bottom-card-main-image-container'>
-          <img src={`/assets/icons/${weatherIcon}@2x.png`} alt="" />
+          <img src={`/assets/icons/${weather ? JSON.parse(weather).weather[0].icon : "01d"}@2x.png`} alt="" />
   
         </div>
       </div>
-      <p><span className='card-data'>{weatherDescription}</span></p>
+      <p><span className='card-data'>{weather ? JSON.parse(weather).weather[0].description : "loading"}</span></p>
     </div>
 
   </div>

@@ -1,7 +1,6 @@
-import React from 'react'
 import "./WindCard.css"
 
-const WindCard = ({ windSpeed, windDeg }) => {
+const WindCard = ({ weather  }) => {  
   return (
     <div className='card'>
       <div className="top-card">
@@ -9,11 +8,11 @@ const WindCard = ({ windSpeed, windDeg }) => {
       </div>
 
       <div className="bottom-card">
-        <p>Wind Speed: <span className='card-data'>{windSpeed} m/s</span></p>
+        <p>Wind Speed: <span className='card-data'>{weather ? JSON.parse(weather).wind.speed : 0} m/s</span></p>
         <div>
           <p>Wind Direction:</p>
           <div className='compass'>
-            <div className='compass-drawing' style={{transform:`rotate(${windDeg}deg)`}}>
+            <div className='compass-drawing' style={{transform:`rotate(${weather ? JSON.parse(weather).wind.deg : 0}deg)`}}>
               <div className='inner-circle'>
                 <div className='inner-direction'></div>
               </div>

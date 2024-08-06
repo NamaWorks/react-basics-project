@@ -1,7 +1,7 @@
 import React from 'react'
 import "./MiscCard.css"
 
-const MiscCard = ({ coordinates, city, mainHumidity, mainSeaLevel, mainGroundLevel, visibility }) => {
+const MiscCard = ({ coordinates, city, weather }) => {
   return (
     <div className='card' id='misc-card'>
       <div className='top-card'>
@@ -9,12 +9,12 @@ const MiscCard = ({ coordinates, city, mainHumidity, mainSeaLevel, mainGroundLev
       </div>
 
       <div className="bottom-card">
-        {/* <p>Coordinates: <span className='card-data'>lat:{coordinates[0]}, lon:{coordinates[1]}</span></p> */}
-        <p>City: <span className='card-data'>{city}</span></p>
-        <p>Humidity: <span className='card-data'>{mainHumidity} %</span></p>
-        <p>Sea level: <span className="card-data">{mainSeaLevel}m </span></p>
-        <p>Ground level: <span className="card-data">{mainGroundLevel} m</span></p>
-        <p>Visibility: <span className="card-data">{visibility} m</span></p>
+        <p>Coordinates: <span className='card-data'>lat:{weather ? JSON.parse(weather).coord.lat : 0}, lon:{weather ? JSON.parse(weather).coord.lon : 0}</span></p>
+        <p>City: <span className='card-data'>{weather ? JSON.parse(weather).name : "city"}</span></p>
+        <p>Humidity: <span className='card-data'>{weather ? JSON.parse(weather).main.humidity : "0"} %</span></p>
+        <p>Sea level: <span className="card-data">{weather ? JSON.parse(weather).main.sea_level : 0}m </span></p>
+        <p>Ground level: <span className="card-data">{weather ? JSON.parse(weather).main.grnd_level : 0} m</span></p>
+        <p>Visibility: <span className="card-data">{weather ? JSON.parse(weather).visibility : 0} m</span></p>
       </div>
     </div>
   )

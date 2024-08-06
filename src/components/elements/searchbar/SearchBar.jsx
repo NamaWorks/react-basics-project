@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom'
 
 
 
-const SearchBar = ({ currentSection, city, setCoordinates, setCity, setWeather, setWeatherMain, setWeatherDescription, setWeatherIcon, setMainTemp, setMainFeelsLike, setMainTempMin, setMainTempMax, setMainHumidity, setMainSeaLevel, setMainGroundLevel, setVisibility, setWindSpeed, setWindDeg, setClouds  }) => {
+const SearchBar = ({ city, setCoordinates, setWeather , weather}) => {
 
   useEffect(()=> {
     if(city){
     const input = document.querySelector("#city-input")
     input.placeholder = city
-    }
+    } 
   },[city])
   
   const navigate = useNavigate();
@@ -25,44 +25,28 @@ const SearchBar = ({ currentSection, city, setCoordinates, setCity, setWeather, 
       onKeyDown={async function(e){
         if (e.code == "Enter") {
           if (e.target.value) {
-            // if(currentSection == "weather"){
               try {
                 navigate("/weather/" + e.target.value)
                 const cityCoords = await getCityCoordinates(e.target.value);
-                console.log(cityCoords)
                 setCoordinates([cityCoords[0].lat, cityCoords[0].lon])
                 
                 const weatherData = await getWeather(
                   cityCoords[0].lat,
                   cityCoords[0].lon
                 );
-                const weatherDataJson = JSON.stringify(weatherData)
+
+                const weatherDataJson = await JSON.stringify(weatherData)
                 setWeather(weatherDataJson)
   
-                e.target.placeholder = weatherData.name
-                e.target.value = weatherData.name
-                setCity(weatherData.name)
-                setWeatherMain(weatherData.weather[0].main)
-                setWeatherDescription(weatherData.weather[0].description)
-                setWeatherIcon(weatherData.weather[0].icon)
-                setMainTemp(weatherData.main.temp)
-                setMainFeelsLike(weatherData.main.feels_like)
-                setMainTempMin(weatherData.main.temp_min)
-                setMainTempMax(weatherData.main.temp_max)
-                setMainHumidity(weatherData.main.humidity)
-                setMainSeaLevel(weatherData.main.sea_level)
-                setMainGroundLevel(weatherData.main.grnd_level)
-                setVisibility(weatherData.visibility)
-                setWindSpeed(weatherData.wind.speed)
-                setWindDeg(weatherData.wind.deg)
-                setClouds(weatherData.clouds.all)
-    
+
+                console.log(JSON.parse(weatherDataJson).name)
+
+
+                e.target.placeholder = await JSON.parse(weatherDataJson).name
+                e.target.value = await JSON.parse(weatherDataJson).name
               } catch (error) {
                 console.log(error);
               }
-            // } else if(currentSection == "forecast"){
-              // console.log("pintamos el forecast")
-            // }
           }
         }
     }}
